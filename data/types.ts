@@ -15,6 +15,7 @@ export type Topic = {
   id: TopicId;
   title: string;
   short: string;
+  icon: string;
 };
 
 export type LessonBlock = {
@@ -60,6 +61,7 @@ export type Sign = {
   draw: string;
   mark?: string;
   glyph?: string;
+  exam?: boolean; // sale mucho en el teórico
 };
 
 export type Scene = {
