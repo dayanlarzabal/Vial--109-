@@ -1,6 +1,3 @@
-# Genera un APK debug de Vial 109 en cada push a main (o manualmente).
-# El APK queda como artefacto descargable en la pestaña Actions de GitHub.
-
 name: Build APK
 
 on:
@@ -11,7 +8,7 @@ on:
 jobs:
   apk:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 45
 
     steps:
       - name: Checkout
@@ -36,6 +33,11 @@ jobs:
 
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
+        with:
+          packages: "platform-tools platforms;android-34 build-tools;34.0.0"
+
+      - name: Accept Android licenses
+        run: yes | sdkmanager --licenses || true
 
       - name: Add Capacitor Android platform
         run: npx cap add android
