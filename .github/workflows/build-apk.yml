@@ -1,3 +1,6 @@
+# Genera un APK debug de Vial 109 en cada push a main (o manualmente).
+# El APK queda como artefacto descargable en la pestaña Actions de GitHub.
+
 name: Build APK
 
 on:
