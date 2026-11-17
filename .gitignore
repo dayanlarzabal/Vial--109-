@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+
+# Build
+dist/
+build/
+*.apk
+*.aab
+*.ipa
+
+# Capacitor / Android / iOS
+android/
+ios/
+.capacitor/
+
+# Native tooling
+local.properties
+.gradle/
+*.keystore
+*.jks
+
+# IDE / OS
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Logs / env
+*.log
+.env
+.env.*
+!.env.example
+
+# npm
+npm-debug.log*
+yarn-error.log*
+.pnpm-store/
