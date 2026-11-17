@@ -65,10 +65,12 @@ function Home() {
   return (
     <div style={{ display: 'grid', gap: 16 }}>
       <div>
-        <p style={{ margin: 0, fontSize: 13, fontWeight: 600, color: 'var(--primary)' }}>
-          Ley 109 · Código de Seguridad Vial
-        </p>
-        <h1 style={{ marginTop: 6, fontSize: 32 }}>El teórico, con las que de verdad caen.</h1>
+        <div className="hero">
+          <p style={{ margin: 0, fontSize: 12, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#fb7185' }}>
+            Ley 109 · Cuba
+          </p>
+          <h1 style={{ marginTop: 8 }}>El teórico, a nivel premium.</h1>
+        </div>
         <p className="muted">
           {QUESTIONS.length} preguntas, {SIGNS.length} señales. El simulacro prioriza prioridad, luces, velocidad y
           alcohol.
@@ -141,7 +143,7 @@ function Estudiar() {
         const related = QUESTIONS.filter((q) => q.topic === lesson.slug);
         const ok = related.filter((q) => answers[q.id] === true).length;
         return (
-          <Link key={lesson.slug} to={`/leccion/${lesson.slug}`} className="card list-link">
+          <Link key={lesson.slug} to={`/leccion/${lesson.slug}`} className="mode-card list-link">
             <div>
               <div style={{ fontFamily: 'Georgia, serif', fontSize: 18 }}>{lesson.title}</div>
               <div className="muted" style={{ fontSize: 13, marginTop: 4 }}>
@@ -292,7 +294,7 @@ function Examen() {
         Banco: {QUESTIONS.length} preguntas, {hot} frecuentes. Al responder suena un tono (se silencia arriba).
       </p>
       {modes.map((m) => (
-        <Link key={m.mode} to={`/prueba/${m.mode}`} className="card list-link">
+        <Link key={m.mode} to={`/prueba/${m.mode}`} className="mode-card list-link">
           <div>
             <div style={{ fontFamily: 'Georgia, serif', fontSize: 18 }}>{m.title}</div>
             <div className="muted" style={{ fontSize: 13, marginTop: 4 }}>
@@ -304,8 +306,8 @@ function Examen() {
       ))}
       <h2 style={{ fontSize: 18, marginTop: 8 }}>Por tema</h2>
       {TOPICS.map((t) => (
-        <Link key={t.id} to={`/prueba/tema-${t.id}`} className="card list-link">
-          <span>{t.title}</span>
+        <Link key={t.id} to={`/prueba/tema-${t.id}`} className="mode-card list-link">
+          <span>{t.icon} {t.title}</span>
           <span className="badge">→</span>
         </Link>
       ))}
@@ -356,7 +358,7 @@ function Avance() {
       <h2 style={{ fontSize: 18 }}>Últimas pruebas</h2>
       {mocks.length === 0 ? <p className="muted">Todavía no hay un simulacro guardado.</p> : null}
       {mocks.slice(0, 8).map((m) => (
-        <div key={m.at} className="card list-link">
+        <div key={m.at} className="mode-card list-link">
           <span>
             {m.mode} · {new Date(m.at).toLocaleDateString('es-CU')}
           </span>
